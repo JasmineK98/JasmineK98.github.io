@@ -15,6 +15,12 @@
 :TradingStatus rdf:type owl:Class ;
 	 rdfs:subClassOf qb:DimensionProperty .
 
+:Country rdf:type owl:Class ;
+	 rdfs:subClassOf qb:DimensionProperty .
+
+:Initiative rdf:type owl:Class ;
+	 rdfs:subClassOf qb:DimensionProperty .
+
 :NumberOfSurveysSent rdf:type owl:Class ;
 	 rdfs:subClassOf qb:MeasureProperty ;
 	 rdfs:range xsd:nonNegativeInteger .
@@ -27,5 +33,8 @@
 	 rdfs:subClassOf qb:MeasureProperty ;
 	 rdfs:range xsd:decimal .
 
+:ProportionOfTradingResponses rdf:type owl:Class ;
+	 rdfs:subClassOf qb:MeasureProperty ;
+	 rdfs:range xsd:decimal .
 
 
