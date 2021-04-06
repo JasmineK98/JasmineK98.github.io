@@ -1,7 +1,7 @@
 // set the dimensions and margins of the graph
-var margin = {top: 10, right: 30, bottom: 20, left: 50},
-    width = 660 - margin.left - margin.right,
-    height = 600 - margin.top - margin.bottom;
+var margin = {top: 30, right: 30, bottom: 350, left: 100},
+    width = 1000 - margin.left - margin.right,
+    height = 850 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
 var svg = d3.select("#trading-graph")
@@ -13,64 +13,36 @@ var svg = d3.select("#trading-graph")
           "translate(" + margin.left + "," + margin.top + ")");
 
 // Parse the Data
-d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/data_stacked.csv", function(data) {
+d3.csv("continue_trade_industry.csv", function(data) {
 
-  // List of subgroups = header of the csv files = soil condition here
-  var subgroups = data.columns.slice(1)
+// X axis
+var x = d3.scaleBand()
+  .range([ 0, width ])
+  .domain(data.map(function(d) { return d.Industry; }))
+  .padding(0.2);
+svg.append("g")
+  .attr("transform", "translate(0," + height + ")")
+  .call(d3.axisBottom(x))
+  .selectAll("text")
+    .attr("transform", "translate(-10,0)rotate(-45)")
+    .style("text-anchor", "end");
 
-  // List of groups = species here = value of the first column called group -> I show them on the X axis
-  var groups = d3.map(data, function(d){return(d.group)}).keys()
+// Add Y axis
+var y = d3.scaleLinear()
+  .domain([0, 100])
+  .range([ height, 0]);
+svg.append("g")
+  .call(d3.axisLeft(y));
 
-  // Add X axis
-  var x = d3.scaleBand()
-      .domain(groups)
-      .range([0, width])
-      .padding([0.2])
-  svg.append("g")
-    .attr("transform", "translate(0," + height + ")")
-    .call(d3.axisBottom(x).tickSizeOuter(0));
+// Bars
+svg.selectAll("mybar")
+  .data(data)
+  .enter()
+  .append("rect")
+    .attr("x", function(d) { return x(d.Industry); })
+    .attr("y", function(d) { return y(d.Value); })
+    .attr("width", x.bandwidth())
+    .attr("height", function(d) { return height - y(d.Value); })
+    .attr("fill", "#69b3a2")
 
-  // Add Y axis
-  var y = d3.scaleLinear()
-    .domain([0, 100])
-    .range([ height, 0 ]);
-  svg.append("g")
-    .call(d3.axisLeft(y));
-
-  // color palette = one color per subgroup
-  var color = d3.scaleOrdinal()
-    .domain(subgroups)
-    .range(['#e41a1c','#377eb8','#4daf4a'])
-
-  // Normalize the data -> sum of each group must be 100!
-  console.log(data)
-  dataNormalized = []
-  data.forEach(function(d){
-    // Compute the total
-    tot = 0
-    for (i in subgroups){ name=subgroups[i] ; tot += +d[name] }
-    // Now normalize
-    for (i in subgroups){ name=subgroups[i] ; d[name] = d[name] / tot * 100}
-  })
-
-  //stack the data? --> stack per subgroup
-  var stackedData = d3.stack()
-    .keys(subgroups)
-    (data)
-
-  // Show the bars
-  svg.append("g")
-    .selectAll("g")
-    // Enter in the stack data = loop key per key = group per group
-    .data(stackedData)
-    .enter().append("g")
-      .attr("fill", function(d) { return color(d.key); })
-      .selectAll("rect")
-      // enter a second time = loop subgroup per subgroup to add all rectangles
-      .data(function(d) { return d; })
-      .enter().append("rect")
-        .attr("x", function(d) { return x(d.data.group); })
-        .attr("y", function(d) { return y(d[1]); })
-        .attr("height", function(d) { return y(d[0]) - y(d[1]); })
-        .attr("width",x.bandwidth())
 })
