@@ -1,0 +1,19 @@
+.continue-button {
+    background-color: #643E46FF;
+    border: none;
+    color: white;
+}
+
+.cease-button {
+    background-color: #333D79FF;
+    border: none;
+    color: white;
+}
+
+.pause-button {
+    background-color: #76528BFF;
+    border: none;
+    color: white;
+}
+
+h6 .colourBreakdown {color:red;}

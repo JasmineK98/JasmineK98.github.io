@@ -1,7 +1,7 @@
 // set the dimensions and margins of the graph
-var margin = {top: 30, right: 30, bottom: 350, left: 100},
-    width = 1000 - margin.left - margin.right,
-    height = 850 - margin.top - margin.bottom;
+var margin = {top: 20, right: 30, bottom: 150, left: 100},
+    width = 900 - margin.left - margin.right,
+    height = 700 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
 var svg = d3.select("#trading-graph")
@@ -13,7 +13,7 @@ var svg = d3.select("#trading-graph")
           "translate(" + margin.left + "," + margin.top + ")");
 
 // Parse the Data
-d3.csv("continue_trade_industry.csv", function(data) {
+d3.csv("trading_status_industry.csv", function(data) {
 
 // X axis
 var x = d3.scaleBand()
@@ -41,9 +41,9 @@ svg.selectAll("mybar")
   .enter()
   .append("rect")
     .attr("x", function(d) { return x(d.Industry); })
-    .attr("y", function(d) { return y(d.Value); })
+    .attr("y", function(d) { return y(d.ContinuedValue); })
     .attr("width", x.bandwidth())
-    .attr("height", function(d) { return height - y(d.Value); })
+    .attr("height", function(d) { return height - y(d.ContinuedValue); })
     .attr("fill", "#69b3a2")
 
 })
