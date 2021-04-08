@@ -27,12 +27,12 @@ var yW = d3.scaleLinear()
 var yAxisW = svgW.append("g")
   .attr("class", "myYaxis");
 
-svgW.append("circle").attr("cx",520).attr("cy",0).attr("r", 6).style("fill", "#EE442F")
+/*svgW.append("circle").attr("cx",520).attr("cy",0).attr("r", 6).style("fill", "#EE442F")
 svgW.append("circle").attr("cx",520).attr("cy",30).attr("r", 6).style("fill", "#63ACBE")
 svgW.append("circle").attr("cx",520).attr("cy",60).attr("r", 6).style("fill", "#709A74")
 svgW.append("text").attr("x", 540).attr("y", 0).text("Continuing to trade").style("font-size", "15px").attr("alignment-baseline","middle")
 svgW.append("text").attr("x", 540).attr("y", 30).text("Permanently ceased trading").style("font-size", "15px").attr("alignment-baseline","middle")
-svgW.append("text").attr("x", 540).attr("y", 60).text("Temporarily paused trading").style("font-size", "15px").attr("alignment-baseline","middle")
+svgW.append("text").attr("x", 540).attr("y", 60).text("Temporarily paused trading").style("font-size", "15px").attr("alignment-baseline","middle")*/
 
 
 
@@ -105,11 +105,11 @@ function drawCountryGraphs() {
         .attr("height", function(d) { return heightW - yW(d[selectedVarW]); })
         .style("fill", function(d) {
             if (selectedVarW == "ContinuedValue") {
-                return "#EE442F";
+                return "#601A4A";
             } else if (selectedVarW == "CeasedValue") {
-                return "#63ACBE";
+                return "#EE442F";
             } else if (selectedVarW == "PausedValue") {
-                return "#709A74";
+                return "#63ACBE";
             }
          });
 

@@ -1,3 +1,20 @@
+.continue-button {
+    background-color: #601A4A;
+    border: none;
+    color: white;
+}
+
+.ceased-button {
+    background-color: #EE442F;
+    border: none;
+    color: white;
+}
+
+.paused-button {
+    background-color: #63ACBE;
+    border: none;
+    color: white;
+}
 h6 .colourBreakdown {
     color: #EE442F;
 }
@@ -13,4 +30,5 @@ h6 .colourBreakdown {
     border: none;
     color: white;
 }
+
 

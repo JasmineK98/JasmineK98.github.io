@@ -38,7 +38,6 @@ d3.csv("surveys_sent_industry.csv", function(data) {
   svgS.append("g")
     .call(d3.axisLeft(yS))
 
-
     // Bars
     svgS.selectAll("myRect")
       .data(data)
@@ -57,6 +56,8 @@ d3.csv("surveys_sent_industry.csv", function(data) {
       .duration(700)
       .attr("width", function(d) { return xS(d.Total); })
       .delay(function(d,i){console.log(i) ; return(i*100)})
+
+
 
 
 })

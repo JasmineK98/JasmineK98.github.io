@@ -16,7 +16,7 @@ $('#schemes-workforce-btn-group button').on("click", function() {
   $(this).attr("class", toBeAssignedClass);
 });
 
-$('#country-btn-group button').on("click", function() {
+/*$('#country-btn-group button').on("click", function() {
 
   var defaultClass = "scheme-button";
   var toBeAssignedClass = $(this).attr("data-btn-class");
@@ -32,4 +32,4 @@ $('#industry-btn-group button').on("click", function() {
 
   $('#industry-btn-group button').attr("class", defaultClass);
   $(this).attr("class", toBeAssignedClass);
-});
+});*/
