@@ -1,9 +1,9 @@
-// set the dimensions and margins of the graph
+// Set the dimensions and margins of the graph
 var marginS = {top: 5, right: 100, bottom: 40, left: 350},
     widthS = 900 - marginS.left - marginS.right,
     heightS = 700 - marginS.top - marginS.bottom;
 
-// append the svg object to the body of the page
+// Append the svg object to the body of the page
 var svgS = d3.select("#surveys-sent-graph")
     .append("svg")
     .attr("width", widthS + marginS.left + marginS.right)
@@ -12,6 +12,7 @@ var svgS = d3.select("#surveys-sent-graph")
     .attr("transform",
         "translate(" + marginS.left + "," + marginS.top + ")");
 
+// Define tooltip
 var tooltip = d3.select("body").append("div").attr("id", "tooltip").attr("class", "toolTip");
 
 // Parse the Data
@@ -32,7 +33,7 @@ d3.csv("surveys_sent_industry.csv", function (data) {
         .attr("transform", "translate(-10,0)rotate(-45)")
         .style("text-anchor", "end");
 
-    // Y axis
+    // Add Y axis
     var yS = d3.scaleBand()
         .range([0, heightS])
         .domain(data.map(function (d) {
@@ -66,7 +67,7 @@ d3.csv("surveys_sent_industry.csv", function (data) {
                 .style("left", d3.event.pageX + 1 + "px")
                 .style("top", d3.event.pageY + 50 + "px")
                 .style("display", "inline-block")
-                .html("Surveys sent:" + " " + (d.Total));
+                .html((d.Industry) + "<br>" + "Surveys sent:" + " " + (d.Total)); //add industry too
         })
         .on("mouseout", function (d) {
             tooltip.style("display", "none");
