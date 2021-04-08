@@ -133,7 +133,7 @@ function drawSchemeWorkforceGraphs() {
             .on("mouseout", function (d) {
                 tooltipT.style("display", "none");
             })
-            .transition().duration(750)
+            .transition().duration(700)
             .attr("y", function (d) {
                 return yT(d.value);
             })
@@ -142,7 +142,7 @@ function drawSchemeWorkforceGraphs() {
             });
 
         bars
-            .transition().duration(750)
+            .transition().duration(700)
             .attr("y", function (d) {
                 return yT(d.value);
             })

@@ -135,7 +135,7 @@ function drawSchemeGraphs() {
             .on("mouseout", function (d) {
                 tooltipQ.style("display", "none");
             })
-            .transition().duration(750)
+            .transition().duration(700)
             .attr("y", function (d) {
                 return yQ(d.value);
             })
@@ -144,7 +144,7 @@ function drawSchemeGraphs() {
             });
 
         bars
-            .transition().duration(750)
+            .transition().duration(700)
             .attr("y", function (d) {
                 return yQ(d.value);
             })
