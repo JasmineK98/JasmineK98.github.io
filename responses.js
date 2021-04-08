@@ -12,6 +12,8 @@ var svgR = d3.select("#responses-graph")
     .attr("transform",
           "translate(" + marginR.left + "," + marginR.top + ")");
 
+var tooltipR = d3.select("body").append("div").attr("id", "tooltipR").attr("class", "toolTip");
+
 // Parse the Data
 d3.csv("responses_industry.csv", function(data) {
 
@@ -53,6 +55,17 @@ d3.csv("responses_industry.csv", function(data) {
 
     // Animation
     svgR.selectAll("rect")
+          .on("mousemove", function (d) {
+            tooltipR
+                .html("Proportion:" + " " + (d.Total))
+                .style("left", d3.event.pageX + 1 + "px")
+                .style("top", d3.event.pageY + 50 + "px")
+                .style("display", "inline-block")
+                ;
+        })
+        .on("mouseout", function (d) {
+            tooltipR.style("display", "none");
+        })
       .transition()
       .duration(700)
       .attr("width", function(d) { return xR(d.Total); })

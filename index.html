@@ -6,8 +6,6 @@
     <meta charset="utf-8">
 
     <title>Business Impact of Coronavirus (COVID-19) Survey</title>
-    <!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
-              integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">-->
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
           integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
@@ -81,7 +79,8 @@
         <div class="col-lg-9">
             <h6 style="padding-left: 2vw">Percentage of all responding businesses, broken down <span
                     class="colourBreakdown">by industry</span></h6>
-            <h6 id="trade-industry-title" style="padding-left: 2vw; padding-top: 1.2vw">...that are: Continuing to trade</h6>
+            <h6 id="trade-industry-title" style="padding-left: 2vw; padding-top: 1.2vw">...that are: Continuing to
+                trade</h6>
         </div>
     </div>
 
@@ -92,7 +91,7 @@
         </div>
         <div class="col-lg-3">
             <div class="row justify-content-end">
-                  <div class="btn-group-vertical" style="width:70%" role="group" id="industry-btn-group">
+                <div class="btn-group-vertical" style="width:70%" role="group" id="industry-btn-group">
                     <button type="button" style="margin-top: 10px; width: 100%; white-space: normal"
                             class="continue-button" onclick="setIndustryVar('ContinuedValue')">
                         Continuing to trade
@@ -114,7 +113,8 @@
         <div class="col-lg-9">
             <h6 style="padding-left: 2vw; padding-top: 5vh">Percentage of all responding businesses, broken down <span
                     class="colourBreakdown">by country</span></h6>
-            <h6 id="trade-country-title" style="padding-left: 2vw; padding-top: 1.2vw">...that are: Continuing to trade</h6>
+            <h6 id="trade-country-title" style="padding-left: 2vw; padding-top: 1.2vw">...that are: Continuing to
+                trade</h6>
         </div>
     </div>
 
@@ -135,7 +135,8 @@
                         Permanently ceased trading
                     </button>
                     <button type="button" style="margin-top: 10px; width: 100%; white-space: normal"
-                            class="paused-button" data-btn-class="clicked-scheme" onclick="setCountryVar('PausedValue')">
+                            class="paused-button" data-btn-class="clicked-scheme"
+                            onclick="setCountryVar('PausedValue')">
                         Temporarily paused trading
                     </button>
                 </div>
@@ -165,7 +166,8 @@
         <div class="col-lg-9">
             <h6 style="padding-left: 2vw; padding-top: 1.2vw">Percentage of businesses either continuing to trade or
                 have temporarily paused trading, broken down <span class="colourBreakdown">by industry</span></h6>
-            <h6 id="scheme-industry-title" style="padding-left: 2vw; padding-top: 1.2vw">...that applied to and received: Coronavirus Job Retention Scheme</h6>
+            <h6 id="scheme-industry-title" style="padding-left: 2vw; padding-top: 1.2vw">...that applied to and
+                received: Coronavirus Job Retention Scheme</h6>
         </div>
     </div>
 
@@ -213,7 +215,8 @@
         <div class="col-lg-9">
             <h6 style="padding-left: 2vw; padding-top: 5vh">Percentage of businesses either continuing to trade or have
                 temporarily paused trading, broken down <span class="colourBreakdown">by workforce size</span></h6>
-            <h6 id="scheme-workforce-title" style="padding-left: 2vw; padding-top: 1.2vw">...that applied to and received: Coronavirus Job Retention Scheme</h6>
+            <h6 id="scheme-workforce-title" style="padding-left: 2vw; padding-top: 1.2vw">...that applied to and
+                received: Coronavirus Job Retention Scheme</h6>
         </div>
     </div>
 
@@ -225,31 +228,38 @@
             <div class="row justify-content-end">
                 <div class="btn-group-vertical" style="width:70%" role="group" id="schemes-workforce-btn-group">
                     <button type="button" style="margin-top: 10px; width: 100%; white-space: normal"
-                            class="scheme-button" data-btn-class="clicked-scheme" onclick="setSchemeWorkforceVar('Corona')">
+                            class="scheme-button" data-btn-class="clicked-scheme"
+                            onclick="setSchemeWorkforceVar('Corona')">
                         Coronavirus Job Retention Scheme
                     </button>
                     <button type="button" style="margin-top: 10px; width: 100%; white-space: normal"
-                            class="scheme-button" data-btn-class="clicked-scheme" onclick="setSchemeWorkforceVar('Business')">
+                            class="scheme-button" data-btn-class="clicked-scheme"
+                            onclick="setSchemeWorkforceVar('Business')">
                         Business rates holiday
                     </button>
                     <button type="button" style="margin-top: 10px; width: 100%; white-space: normal"
-                            class="scheme-button" data-btn-class="clicked-scheme" onclick="setSchemeWorkforceVar('VAT')">
+                            class="scheme-button" data-btn-class="clicked-scheme"
+                            onclick="setSchemeWorkforceVar('VAT')">
                         Deferring VAT payments
                     </button>
                     <button type="button" style="margin-top: 10px; width: 100%; white-space: normal"
-                            class="scheme-button" data-btn-class="clicked-scheme" onclick="setSchemeWorkforceVar('HMRC')">HMRC
+                            class="scheme-button" data-btn-class="clicked-scheme"
+                            onclick="setSchemeWorkforceVar('HMRC')">HMRC
                         Time To Pay scheme
                     </button>
                     <button type="button" style="margin-top: 10px; width: 100%; white-space: normal"
-                            class="scheme-button" data-btn-class="clicked-scheme" onclick="setSchemeWorkforceVar('Grant')">
+                            class="scheme-button" data-btn-class="clicked-scheme"
+                            onclick="setSchemeWorkforceVar('Grant')">
                         Government-funded small business grant or loan schemes
                     </button>
                     <button type="button" style="margin-top: 10px; width: 100%; white-space: normal"
-                            class="scheme-button" data-btn-class="clicked-scheme" onclick="setSchemeWorkforceVar('Finance')">
+                            class="scheme-button" data-btn-class="clicked-scheme"
+                            onclick="setSchemeWorkforceVar('Finance')">
                         Accredited finance agreements
                     </button>
                     <button type="button" style="margin-top: 10px; width: 100%; white-space: normal"
-                            class="scheme-button" data-btn-class="clicked-scheme" onclick="setSchemeWorkforceVar('None')">None
+                            class="scheme-button" data-btn-class="clicked-scheme"
+                            onclick="setSchemeWorkforceVar('None')">None
                     </button>
                 </div>
             </div>
@@ -259,12 +269,6 @@
 </div>
 
 
-<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-&lt;!&ndash;<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
-        crossorigin="anonymous"></script>&ndash;&gt;
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
