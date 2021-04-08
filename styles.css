@@ -1,19 +1,16 @@
-.continue-button {
-    background-color: #643E46FF;
+h6 .colourBreakdown {
+    color: #EE442F;
+}
+
+.scheme-button {
+    background-color: #601A4A;
     border: none;
     color: white;
 }
 
-.cease-button {
-    background-color: #333D79FF;
+.clicked-scheme {
+    background-color: #A95AA1;
     border: none;
     color: white;
 }
 
-.pause-button {
-    background-color: #76528BFF;
-    border: none;
-    color: white;
-}
-
-h6 .colourBreakdown {color:red;}

@@ -25,7 +25,15 @@ var xAxisW = svgW.append("g")
 var yW = d3.scaleLinear()
   .range([ heightW, 0]);
 var yAxisW = svgW.append("g")
-  .attr("class", "myYaxis")
+  .attr("class", "myYaxis");
+
+svgW.append("circle").attr("cx",520).attr("cy",0).attr("r", 6).style("fill", "#EE442F")
+svgW.append("circle").attr("cx",520).attr("cy",30).attr("r", 6).style("fill", "#63ACBE")
+svgW.append("circle").attr("cx",520).attr("cy",60).attr("r", 6).style("fill", "#709A74")
+svgW.append("text").attr("x", 540).attr("y", 0).text("Continuing to trade").style("font-size", "15px").attr("alignment-baseline","middle")
+svgW.append("text").attr("x", 540).attr("y", 30).text("Permanently ceased trading").style("font-size", "15px").attr("alignment-baseline","middle")
+svgW.append("text").attr("x", 540).attr("y", 60).text("Temporarily paused trading").style("font-size", "15px").attr("alignment-baseline","middle")
+
 
 
 var selectedVarW;
@@ -40,6 +48,23 @@ function drawCountryGraphs() {
 
   // Parse the Data
   d3.csv("trading_status_country.csv", function(data) {
+
+      if (selectedVarW == "ContinuedValue") {
+          data.sort(function (b, a) {
+              return a.ContinuedValue - b.ContinuedValue;
+          });
+          document.getElementById("trade-country-title").innerHTML = "that are: Continuing to trade";
+      } else if (selectedVarW == "CeasedValue") {
+          data.sort(function (b, a) {
+              return a.CeasedValue - b.CeasedValue;
+          });
+          document.getElementById("trade-country-title").innerHTML = "that have: Permanently ceased trading";
+      } else if (selectedVarW == "PausedValue") {
+          data.sort(function (b, a) {
+              return a.PausedValue - b.PausedValue;
+          });
+          document.getElementById("trade-country-title").innerHTML = "that have: Temporarily paused trading";
+      }
 
     // X axis
           xW.domain(data.map(function (d) {
@@ -57,7 +82,7 @@ function drawCountryGraphs() {
     if (selectedVarW == "CeasedValue") {
           yW.domain([0,d3.max(data, function(d) { return +d[selectedVarW] })]);
     } else {
-          yW.domain([0, Math.ceil(d3.max(data, function(d) { return +d[selectedVarW] }) / 10) * 10 ]);
+          yW.domain([0, 100 ]);
     }
 
     yAxisW.transition().duration(1000).call(d3.axisLeft(yW));
@@ -80,11 +105,11 @@ function drawCountryGraphs() {
         .attr("height", function(d) { return heightW - yW(d[selectedVarW]); })
         .style("fill", function(d) {
             if (selectedVarW == "ContinuedValue") {
-                return "#643E46FF";
+                return "#EE442F";
             } else if (selectedVarW == "CeasedValue") {
-                return "#333D79FF";
+                return "#63ACBE";
             } else if (selectedVarW == "PausedValue") {
-                return "#76528BFF";
+                return "#709A74";
             }
          });
 

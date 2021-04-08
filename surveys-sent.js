@@ -46,7 +46,7 @@ d3.csv("surveys_sent_industry.csv", function(data) {
       .append("rect")
         .attr("x", function(d) { return xS(0); })
         .attr("width", 0)
-        .attr("fill", "#435E55FF") // #D64161FF for the pink
+        .attr("fill", "#EE442F")
         // no bar at the beginning thus:
         .attr("height", yS.bandwidth()) // always equal to 0
         .attr("y", function(d) { return yS(d.Industry); })

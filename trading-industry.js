@@ -26,6 +26,12 @@ var yIndustry  = d3.scaleLinear()
 var yAxisIndustry  = svgIndustry.append("g")
   .attr("class", "myYaxis")
 
+svgIndustry.append("circle").attr("cx",520).attr("cy",0).attr("r", 6).style("fill", "#EE442F")
+svgIndustry.append("circle").attr("cx",520).attr("cy",30).attr("r", 6).style("fill", "#63ACBE")
+svgIndustry.append("circle").attr("cx",520).attr("cy",60).attr("r", 6).style("fill", "#709A74")
+svgIndustry.append("text").attr("x", 540).attr("y", 0).text("Continuing to trade").style("font-size", "15px").attr("alignment-baseline","middle")
+svgIndustry.append("text").attr("x", 540).attr("y", 30).text("Permanently ceased trading").style("font-size", "15px").attr("alignment-baseline","middle")
+svgIndustry.append("text").attr("x", 540).attr("y", 60).text("Temporarily paused trading").style("font-size", "15px").attr("alignment-baseline","middle")
 
 var selectedVar;
 
@@ -39,6 +45,23 @@ function drawIndustryGraphs() {
 
   // Parse the Data
   d3.csv("trading_status_industry.csv", function(data) {
+
+      if (selectedVar == "ContinuedValue") {
+          data.sort(function (b, a) {
+              return a.ContinuedValue - b.ContinuedValue;
+          });
+          document.getElementById("trade-industry-title").innerHTML = "that are: Continuing to trade";
+      } else if (selectedVar == "CeasedValue") {
+          data.sort(function (b, a) {
+              return a.CeasedValue - b.CeasedValue;
+          });
+          document.getElementById("trade-industry-title").innerHTML = "that have: Permanently ceased trading";
+      } else if (selectedVar == "PausedValue") {
+          data.sort(function (b, a) {
+              return a.PausedValue - b.PausedValue;
+          });
+          document.getElementById("trade-industry-title").innerHTML = "that have: Temporarily paused trading";
+      }
 
     // X axis
           xIndustry.domain(data.map(function (d) {
@@ -55,10 +78,11 @@ function drawIndustryGraphs() {
     if (selectedVar == "CeasedValue") {
           yIndustry.domain([0,d3.max(data, function(d) { return +d[selectedVar] })]);
     } else {
-          yIndustry.domain([0, Math.ceil(d3.max(data, function(d) { return +d[selectedVar] }) / 10) * 10 ]);
+          yIndustry.domain([0, 100]);
     }
 
     yAxisIndustry.transition().duration(1000).call(d3.axisLeft(yIndustry));
+
 
     // variable u: map data to existing bars
     var u = svgIndustry.selectAll("rect")
@@ -78,14 +102,13 @@ function drawIndustryGraphs() {
         .attr("height", function(d) { return heightIndustry - yIndustry(d[selectedVar]); })
         .style("fill", function(d) {
             if (selectedVar == "ContinuedValue") {
-                return "#643E46FF";
+                return "#EE442F";
             } else if (selectedVar == "CeasedValue") {
-                return "#333D79FF";
+                return "#63ACBE";
             } else if (selectedVar == "PausedValue") {
-                return "#76528BFF";
+                return "#709A74";
             }
          });
-
 
 
   })

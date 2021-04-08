@@ -36,7 +36,8 @@
 
     <div class="row" style="min-height: 3vh">
         <div class="col-lg-9">
-            <h6 style="padding-left: 2vw">Total number of surveys sent, broken down <span class="colourBreakdown">by industry</span></h6>
+            <h6 style="padding-left: 2vw">Total number of surveys sent, broken down <span class="colourBreakdown">by industry</span>
+            </h6>
         </div>
     </div>
 
@@ -47,13 +48,14 @@
         </div>
     </div>
 
-     <div class="row" style="min-height: 3vh">
+    <div class="row" style="min-height: 3vh">
         <div class="col-lg-9">
-            <h6 style="padding-left: 2vw; padding-top: 5vh">Proportion of responses to the survey, broken down <span class="colourBreakdown">by industry</span></h6>
+            <h6 style="padding-left: 2vw; padding-top: 5vh">Proportion of responses to the survey, broken down <span
+                    class="colourBreakdown">by industry</span></h6>
         </div>
     </div>
 
-      <div class="row" style="min-height: 39vh">
+    <div class="row" style="min-height: 39vh">
         <div class="col-lg-9">
             <div id="responses-graph" style="padding-top: 2vw; padding-left: 2vw"></div>
         </div>
@@ -77,7 +79,9 @@
 
     <div class="row" style="min-height: 3vh">
         <div class="col-lg-9">
-            <h6 style="padding-left: 2vw">Percentage of all responding businesses, broken down <span class="colourBreakdown">by industry</span></h6>
+            <h6 style="padding-left: 2vw">Percentage of all responding businesses, broken down <span
+                    class="colourBreakdown">by industry</span></h6>
+            <h6 id="trade-industry-title" style="padding-left: 2vw; padding-top: 1.2vw">...that are: Continuing to trade</h6>
         </div>
     </div>
 
@@ -88,69 +92,167 @@
         </div>
         <div class="col-lg-3">
             <div class="row justify-content-end">
-                <button style="margin-top: 30px; width: 70%" class="continue-button" onclick="setIndustryVar('ContinuedValue')">
-                    Continuing to trade
-                </button>
-                <button style="margin-top: 10px; width: 70%" class="cease-button" onclick="setIndustryVar('CeasedValue')">
-                    Permanently ceased trading
-                </button>
-                <button style="margin-top: 10px; width: 70%" class="pause-button" onclick="setIndustryVar('PausedValue')">
-                    Temporarily paused trading
-                </button>
+                  <div class="btn-group-vertical" style="width:70%" role="group" id="industry-btn-group">
+                    <button type="button" style="margin-top: 10px; width: 100%; white-space: normal"
+                            class="scheme-button" data-btn-class="clicked-scheme" onclick="setIndustryVar('ContinuedValue')">
+                        Continuing to trade
+                    </button>
+                    <button type="button" style="margin-top: 10px; width: 100%; white-space: normal"
+                            class="scheme-button" data-btn-class="clicked-scheme" onclick="setIndustryVar('CeasedValue')">
+                        Permanently ceased trading
+                    </button>
+                    <button type="button" style="margin-top: 10px; width: 100%; white-space: normal"
+                            class="scheme-button" data-btn-class="clicked-scheme" onclick="setIndustryVar('PausedValue')">
+                        Temporarily paused trading
+                    </button>
+                </div>
             </div>
         </div>
     </div>
 
-     <div class="row" style="min-height: 3vh">
+    <div class="row" style="min-height: 3vh">
         <div class="col-lg-9">
-            <h6 style="padding-left: 2vw; padding-top: 5vh">Percentage of all responding businesses, broken down <span class="colourBreakdown">by country</span></h6>
+            <h6 style="padding-left: 2vw; padding-top: 5vh">Percentage of all responding businesses, broken down <span
+                    class="colourBreakdown">by country</span></h6>
+            <h6 id="trade-country-title" style="padding-left: 2vw; padding-top: 1.2vw">...that are: Continuing to trade</h6>
         </div>
     </div>
 
-      <div class="row" style="min-height: 39vh">
+    <div class="row" style="min-height: 39vh">
         <div class="col-lg-9">
             <div id="trading-country-graph" style="padding-top: 2vw; padding-left: 2vw"></div>
         </div>
         <div class="col-lg-3">
             <div class="row justify-content-end">
-                <button style="margin-top: 30px; width: 70%" class="continue-button" onclick="setCountryVar('ContinuedValue')">
-                    Continuing to trade
-                </button>
-                <button style="margin-top: 10px; width: 70%" class="cease-button" onclick="setCountryVar('CeasedValue')">
-                    Permanently ceased trading
-                </button>
-                <button style="margin-top: 10px; width: 70%" class="pause-button" onclick="setCountryVar('PausedValue')">
-                    Temporarily paused trading
-                </button>
+
+                <div class="btn-group-vertical" style="width:70%" role="group" id="country-btn-group">
+                    <button type="button" style="margin-top: 10px; width: 100%; white-space: normal"
+                            class="scheme-button" data-btn-class="clicked-scheme" onclick="setCountryVar('ContinuedValue')">
+                        Continuing to trade
+                    </button>
+                    <button type="button" style="margin-top: 10px; width: 100%; white-space: normal"
+                            class="scheme-button" data-btn-class="clicked-scheme" onclick="setCountryVar('CeasedValue')">
+                        Permanently ceased trading
+                    </button>
+                    <button type="button" style="margin-top: 10px; width: 100%; white-space: normal"
+                            class="scheme-button" data-btn-class="clicked-scheme" onclick="setCountryVar('PausedValue')">
+                        Temporarily paused trading
+                    </button>
+                </div>
             </div>
         </div>
     </div>
 
 
-
 </div>
 
 <div class="container" style="margin-left: 0; padding-left: 0">
-    <div class="row" style="min-height: 18vh">
+    <div class="row" style="min-height: 15vh">
         <div class="col-lg-3">
             <h4 style="padding-top: 2vw; padding-left: 2vw">Government Schemes Information</h4>
             <hr style="min-width: 100vw">
         </div>
         <div class="col-lg-9">
             <p style="padding-top: 2vw">Businesses were asked about the initiatives they applied to and received.
-                The graph below shows the percentage of businesses continuing to trade
+                The graphs below shows the percentage of businesses either continuing to trade
                 or have temporarily paused trading that have applied to and received various
                 initiatives.
             </p>
         </div>
     </div>
 
-    <div class="row" style="min-height: 78vh">
+    <div class="row" style="min-height: 3vh">
         <div class="col-lg-9">
-            <div style="padding-left: 2vw">graph</div>
+            <h6 style="padding-left: 2vw; padding-top: 1.2vw">Percentage of businesses either continuing to trade or
+                have temporarily paused trading, broken down <span class="colourBreakdown">by industry</span></h6>
+            <h6 id="scheme-industry-title" style="padding-left: 2vw; padding-top: 1.2vw">...that applied to and received: Coronavirus Job Retention Scheme</h6>
+        </div>
+    </div>
+
+
+    <div class="row" style="min-height: 39vh">
+        <div class="col-lg-9">
+            <div id="schemes-industry-graph" style="padding-top: 2vw; padding-left: 2vw"></div>
         </div>
         <div class="col-lg-3">
-            <div style="padding-left: 2vw">filters</div>
+            <div class="row justify-content-end">
+                <div class="btn-group-vertical" style="width:70%" role="group" id="schemes-industry-btn-group">
+                    <button type="button" style="margin-top: 10px; width: 100%; white-space: normal"
+                            class="scheme-button" data-btn-class="clicked-scheme" onclick="setSchemeVar('Corona')">
+                        Coronavirus Job Retention Scheme
+                    </button>
+                    <button type="button" style="margin-top: 10px; width: 100%; white-space: normal"
+                            class="scheme-button" data-btn-class="clicked-scheme" onclick="setSchemeVar('Business')">
+                        Business rates holiday
+                    </button>
+                    <button type="button" style="margin-top: 10px; width: 100%; white-space: normal"
+                            class="scheme-button" data-btn-class="clicked-scheme" onclick="setSchemeVar('VAT')">
+                        Deferring VAT payments
+                    </button>
+                    <button type="button" style="margin-top: 10px; width: 100%; white-space: normal"
+                            class="scheme-button" data-btn-class="clicked-scheme" onclick="setSchemeVar('HMRC')">HMRC
+                        Time To Pay scheme
+                    </button>
+                    <button type="button" style="margin-top: 10px; width: 100%; white-space: normal"
+                            class="scheme-button" data-btn-class="clicked-scheme" onclick="setSchemeVar('Grant')">
+                        Government-funded small business grant or loan schemes
+                    </button>
+                    <button type="button" style="margin-top: 10px; width: 100%; white-space: normal"
+                            class="scheme-button" data-btn-class="clicked-scheme" onclick="setSchemeVar('Finance')">
+                        Accredited finance agreements
+                    </button>
+                    <button type="button" style="margin-top: 10px; width: 100%; white-space: normal"
+                            class="scheme-button" data-btn-class="clicked-scheme" onclick="setSchemeVar('None')">None
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="min-height: 3vh">
+        <div class="col-lg-9">
+            <h6 style="padding-left: 2vw; padding-top: 5vh">Percentage of businesses either continuing to trade or have
+                temporarily paused trading, broken down <span class="colourBreakdown">by workforce size</span></h6>
+            <h6 id="scheme-workforce-title" style="padding-left: 2vw; padding-top: 1.2vw">...that applied to and received: Coronavirus Job Retention Scheme</h6>
+        </div>
+    </div>
+
+    <div class="row" style="min-height: 39vh">
+        <div class="col-lg-9">
+            <div id="schemes-workforce-graph" style="padding-top: 2vw; padding-left: 2vw"></div>
+        </div>
+        <div class="col-lg-3">
+            <div class="row justify-content-end">
+                <div class="btn-group-vertical" style="width:70%" role="group" id="schemes-workforce-btn-group">
+                    <button type="button" style="margin-top: 10px; width: 100%; white-space: normal"
+                            class="scheme-button" data-btn-class="clicked-scheme" onclick="setSchemeWorkforceVar('Corona')">
+                        Coronavirus Job Retention Scheme
+                    </button>
+                    <button type="button" style="margin-top: 10px; width: 100%; white-space: normal"
+                            class="scheme-button" data-btn-class="clicked-scheme" onclick="setSchemeWorkforceVar('Business')">
+                        Business rates holiday
+                    </button>
+                    <button type="button" style="margin-top: 10px; width: 100%; white-space: normal"
+                            class="scheme-button" data-btn-class="clicked-scheme" onclick="setSchemeWorkforceVar('VAT')">
+                        Deferring VAT payments
+                    </button>
+                    <button type="button" style="margin-top: 10px; width: 100%; white-space: normal"
+                            class="scheme-button" data-btn-class="clicked-scheme" onclick="setSchemeWorkforceVar('HMRC')">HMRC
+                        Time To Pay scheme
+                    </button>
+                    <button type="button" style="margin-top: 10px; width: 100%; white-space: normal"
+                            class="scheme-button" data-btn-class="clicked-scheme" onclick="setSchemeWorkforceVar('Grant')">
+                        Government-funded small business grant or loan schemes
+                    </button>
+                    <button type="button" style="margin-top: 10px; width: 100%; white-space: normal"
+                            class="scheme-button" data-btn-class="clicked-scheme" onclick="setSchemeWorkforceVar('Finance')">
+                        Accredited finance agreements
+                    </button>
+                    <button type="button" style="margin-top: 10px; width: 100%; white-space: normal"
+                            class="scheme-button" data-btn-class="clicked-scheme" onclick="setSchemeWorkforceVar('None')">None
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -176,6 +278,10 @@
 <script src="trading-country.js"></script>
 <script src="surveys-sent.js"></script>
 <script src="responses.js"></script>
+<script src="schemes-industry.js"></script>
+<script src="scheme-buttons.js"></script>
+<script src="schemes-workforce.js"></script>
 </body>
 
 </html>
+
