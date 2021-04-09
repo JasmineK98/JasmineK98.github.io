@@ -48,25 +48,25 @@ function drawSchemeGraphs() {
 
     if (selectedScheme == "Corona") {
         csv_file = "applied_industry_corona.csv";
-        document.getElementById("scheme-industry-title").innerHTML = "...that applied to and received: Coronavirus Job Retention Scheme";
+        document.getElementById("scheme-industry-title").innerHTML = "...that applied for and received: Coronavirus Job Retention Scheme";
     } else if (selectedScheme == "Business") {
         csv_file = "applied_industry_business.csv";
-        document.getElementById("scheme-industry-title").innerHTML = "...that applied to and received: Business rates holiday";
+        document.getElementById("scheme-industry-title").innerHTML = "...that applied for and received: Business rates holiday";
     } else if (selectedScheme == "VAT") {
         csv_file = "applied_industry_vat.csv";
-        document.getElementById("scheme-industry-title").innerHTML = "...that applied to and received: Deferring VAT payments";
+        document.getElementById("scheme-industry-title").innerHTML = "...that applied for and received: Deferring VAT payments";
     } else if (selectedScheme == "HMRC") {
         csv_file = "applied_industry_hmrc.csv";
-        document.getElementById("scheme-industry-title").innerHTML = "...that applied to and received: HMRC Time To Pay scheme";
+        document.getElementById("scheme-industry-title").innerHTML = "...that applied for and received: HMRC Time To Pay scheme";
     } else if (selectedScheme == "Grant") {
         csv_file = "applied_industry_grant.csv";
-        document.getElementById("scheme-industry-title").innerHTML = "...that applied to and received: Government-funded small business grant or loan schemes";
+        document.getElementById("scheme-industry-title").innerHTML = "...that applied for and received: Government-funded small business grant or loan schemes";
     } else if (selectedScheme == "Finance") {
         csv_file = "applied_industry_finance.csv";
-        document.getElementById("scheme-industry-title").innerHTML = "...that applied to and received: Accredited finance agreements";
+        document.getElementById("scheme-industry-title").innerHTML = "...that applied for and received: Accredited finance agreements";
     } else if (selectedScheme == "None") {
         csv_file = "applied_industry_none.csv";
-        document.getElementById("scheme-industry-title").innerHTML = "...that applied to and received: None";
+        document.getElementById("scheme-industry-title").innerHTML = "...that applied for and received: None";
     }
 
     d3.csv(csv_file, function (data) {
